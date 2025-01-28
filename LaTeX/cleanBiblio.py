@@ -71,6 +71,25 @@ for entry in entries[1:]:
             bibdict[k] = v
             i = closing+2
             posegal=nextegal
+        
+        # Clean date 
+        if "date" in bibdict.keys():
+            d = bibdict["date"]
+            dsplit = d.split("-")
+            if len(dsplit) > 1:
+                stats_months += 1
+            y = dsplit[0] # remove month if there is one
+            bibdict["date"] = y
+            if "year" in bibdict.keys():
+                # check if it is the same date
+                if bibdict["year"] != y:
+                    print("     entry {} has different year for the `date` ({}) and `year` ({}) fields".format(bibdict["keyword"], y, bibdict["year"]))
+        elif "year" in bibdict.keys():
+            bibdict["date"] = bibdict["year"]
+        else:
+            print("     entry {} has no date".format(bibdict["keyword"]))
+            stats_missing_fields += 1
+        bibdict.pop("year", "")
         # Clean if article 
         entrytype = bibdict["entrytype"].lower()
         if entrytype in stats_type.keys():
@@ -113,12 +132,7 @@ for entry in entries[1:]:
                         print("     entry {} has no {} field".format(bibdict["keyword"], k))
                         stats_missing_fields += 1
                 else:
-                    if k == "date":
-                        vsplit = v.split("-")
-                        if len(vsplit) > 1:
-                            stats_months += 1
-                            v = vsplit[0] # remove month
-                    newbibdict[k] = v
+                    newbibdict[k] = bibdict[k]
             bibdict = newbibdict
         else:
             for k in fields_to_remove:
