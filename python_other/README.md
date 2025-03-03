@@ -6,7 +6,8 @@ Converts a help info to a standard documentation
 
 ## Usage 
 ```bash
-python argparse_help_to_md [-h] [--encoding ENCODING] input output
+python argparse_help_to_md [-h] [--encoding ENCODING] [--remove_arg_groups]
+                           input output
 ```
 
 ## Arguments
@@ -17,6 +18,7 @@ python argparse_help_to_md [-h] [--encoding ENCODING] input output
 **Optional arguments:**
  * `-h, --help` : show this help message and exit
  * `--encoding ENCODING  Specify the encoding of the input file`
+ * `--remove_arg_groups  Remove the group titles (Positional/Optional arguments) for the arguments`
 
 ## Other
 Example:
