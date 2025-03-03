@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 import argparse
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description = "Converts a csv file in a well-formated markdown file.")
 
 parser.add_argument("input", help = "input .csv file")
 parser.add_argument("output", help = "output .md file")
-parser.add_argument("--separator", "-s", default = ";", help = "separator")
+parser.add_argument("--separator", "-s", help = "separator, default is ';'.",  default = ";",)
 
 args = parser.parse_args()
 

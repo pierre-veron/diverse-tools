@@ -1,24 +1,27 @@
 # summarize_fasta.py
-Read a fasta file and summarize the header in a .csv file. 
-
-## Usage
-Read a fasta file and summarizes the headers in a .csv file.
-```
-usage: summarize_fasta [-h] [--header [HEADER ...]] [--progress | --no-progress] fasta_fp out_fp
-
+## Description
 Read a fasta file and summarizes the headers in a .csv file.
 
-positional arguments:
-  fasta_fp              fasta file path
-  out_fp                csv output file
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --header [HEADER ...]
-                        Column names. If not given, no header is written.
-  --progress, --no-progress
-                        show progress bar (default: True)
+
+## Usage 
+```bash
+python summarize_fasta [-h] [--header [HEADER ...]]
+                       [--progress | --no-progress]
+                       fasta_fp out_fp
 ```
+
+## Arguments
+**Positional arguments:**
+ * `fasta_fp` : fasta file path
+ * `out_fp` : csv output file
+
+**Optional arguments:**
+ * `-h, --help` : show this help message and exit
+ * `--header [HEADER ...]` : Column names. If not given, no header is written.
+ * `--progress, --no-progress` : show progress bar (default: True)
+
+
 
 ## Example 
 Assume we have a file `sequences.fasta` : 

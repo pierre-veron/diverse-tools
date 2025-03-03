@@ -1,0 +1,12 @@
+﻿usage: csv_to_md.py [-h] [--separator SEPARATOR] input output
+
+Converts a csv file in a well-formated markdown file.
+
+positional arguments:
+  input                 input .csv file
+  output                output .md file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --separator SEPARATOR, -s SEPARATOR
+                        separator, default is ';'
